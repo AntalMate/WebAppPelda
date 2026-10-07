@@ -31,7 +31,7 @@
                     <td>@item.Email</td>
                     <td>@item.Pontszam</td>
                     <td>
-                        <a class="btn btn-sm btn-secondary" asp-controller="Home" asp-action="EditVasarlo" asp-route-id="@item.Id">Szerkesztés</a>
+                        <a class="btn btn-sm btn-secondary" asp-controller="Home" asp-action="UpdateVasarlo" asp-route-id="@item.Id">Szerkesztés</a>
                     </td>
                     <td>
                         <form asp-controller="Home" asp-action="DeleteVasarlo" method="post" class="d-inline">
