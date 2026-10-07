@@ -1,11 +1,27 @@
-﻿@{
-    ViewData["Title"] = "Customer details";
+﻿﻿@{
+ViewData["Title"] = "Vásárló adatai:";
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>@Model.Id</p>
-<p>@Model.Name</p>
-<p>@Model.Phone</p>
-<p>@Model.Score</p>
-    
 
+<table class="table">
+    <thead>
+        <th>Id</th>
+        <th>Név</th>
+        <th>Cím</th>
+        <th>Telefon</th>
+        <th>Email</th>
+        <th>Pontszam</th>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Nev</td>
+            <td>@Model.Cim</td>
+            <td>@Model.Telefon</td>
+            <td>@Model.Email</td>
+            <td>@Model.Pontszam</td>
+        </tr>
+    </tbody>
+</table>

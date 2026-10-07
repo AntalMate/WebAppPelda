@@ -1,27 +1,49 @@
-﻿@{
-    ViewData["Title"] = "Customer details";
+﻿@model IEnumerable<WebAppPelda.Models.Customer>
+@{
+    ViewData["Title"] = "Vásárlók:";
 }
 <h1>@ViewData["Title"]</h1>
 
-    <table class="table">
+<table class="table">
+    <thead>
         <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Score</th>
+            <th>Név</th>
+            <th>Cím</th>
+            <th>Telefon</th>
+            <th>Email</th>
+            <th>Pontszam</th>
+            <th>Műveletek</th>
         </tr>
-@foreach (var customer in Model)
-{
-    
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-area="" asp-controller="Home" asp-action="Vasarlo" asp-route-id="@item.Id">@item.Id</a>
+                    </td>
+                    <td>@item.Nev</td>
+                    <td>@item.Cim</td>
+                    <td>@item.Telefon</td>
+                    <td>@item.Email</td>
+                    <td>@item.Pontszam</td>
+                    <td>
+                        <a class="btn btn-sm btn-secondary" asp-controller="Home" asp-action="EditVasarlo" asp-route-id="@item.Id">Szerkesztés</a>
+                    </td>
+                    <td>
+                        <form asp-controller="Home" asp-action="DeleteVasarlo" method="post" class="d-inline">
+                            <input type="hidden" name="Id" value="@item.Id" />
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Biztos törlöd?');">Törlés</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
 
-        <tr>
             
-            <td><a asp-area="" asp-controller="Home" asp-action="Vasarlo" asp-route-id="@customer.Id">@customer.Id</a></td>
-            <td>@customer.Name</td>
-            <td>@customer.Phone</td>
-            <td>@customer.Score</td>
-        </tr>
-}
-    </table>
-    
 

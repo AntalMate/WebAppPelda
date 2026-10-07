@@ -1,0 +1,41 @@
+﻿@model WebAppPelda.Models.Customer
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="mt-4" style="max-width : 600px;">
+    <h2 class="mb-4">Új vásárló</h2>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+    <form asp-controller="Home" asp-action="CreateVasarlo" method="post" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label asp-for="Nev" class="form-label">Név</label>
+            <input type="text" class="form-control" asp-for="Nev" placeholder="Minta János">
+        </div>
+        <div class="mb-3">
+            <label for="Cim" class="form-label">Cím</label>
+            <input type="text" class="form-control" asp-for="Cim" placeholder="Budapest 123">
+        </div>
+        <div class="mb-3">
+            <label for="Telefon" class="form-label">Telefon</label>
+            <input type="text" class="form-control" asp-for="Telefon" placeholder="+361234567">
+        </div>
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input type="text" class="form-control" asp-for="Email" placeholder="mintajanos@gmail.com">
+        </div>
+        <div class="mb-3">
+            <label for="Pontszam" class="form-label">Pontszám</label>
+            <input type="number" class="form-control" asp-for="Pontszam" placeholder="999">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Mentés</button>
+    </form>
+</div>
